@@ -6,3 +6,4 @@ This is my first non-image recognition machine learning project. "Tutorial Code"
 
 https://www.youtube.com/watch?v=Q59X518JZHE
 
+https://youtu.be/tPYj3fFJGjk

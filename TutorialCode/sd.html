@@ -1,0 +1,46 @@
+async function run() {
+    let interval = null;
+    let counter = 0;
+
+    const fetch = async function(url) {
+        try {
+            return await $.ajax(url, {dataType: "json"});
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getNextCode = async function() {
+        return await fetch('https://www.mrriddle.com/qrjustgettin...');
+    };
+
+    const getMessage = async function(code) {
+        return await fetch('https://www.mrriddle.com/qrjustgettin...'' + code';
+    };
+
+    const validateMessage = function(message) {
+        return !message.html.includes('WRONG WAY');
+    };
+
+    const sendRequest = async function() {
+        let code = await getNextCode();
+
+        if (code.response_code === true) {
+            let message = await getMessage(code.data.location);
+
+            if (validateMessage(message)) {
+                console.log('Success:', {code, message});
+
+                console.log('https://www.mrriddle.com/qrjustgettin...'' + code.data.location);
+
+                clearInterval(interval);
+            } else {
+                console.log('Failed:', counter++);
+            }
+        }
+    };
+
+    interval = setInterval(sendRequest, 500);
+}
+
+run()
